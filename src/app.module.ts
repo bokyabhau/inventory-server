@@ -15,7 +15,11 @@ const rootPath = resolve(
 );
 
 @Module({
-  imports: [MongooseModule.forRoot(process.env.DB_URL), DatabaseModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true, expandVariables: true }),
+    MongooseModule.forRoot(process.env.DB_URL),
+    DatabaseModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
