@@ -17,8 +17,8 @@ const rootPath = resolve(
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot('mongodb+srv://adi:admin@cluster0.wxhrnig.mongodb.net/inventory?retryWrites=true&w=majority'),
-    ServeStaticModule.forRoot({ rootPath }),
+    MongooseModule.forRoot(process.env.DB_URL),
+    // ServeStaticModule.forRoot({ rootPath }),
     // ProductModule,
     DatabaseModule,
   ],
