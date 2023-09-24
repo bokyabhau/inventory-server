@@ -15,13 +15,7 @@ const rootPath = resolve(
 );
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot(process.env.DB_URL),
-    // ServeStaticModule.forRoot({ rootPath }),
-    // ProductModule,
-    DatabaseModule,
-  ],
+  imports: [MongooseModule.forRoot(process.env.DB_URL), DatabaseModule],
   controllers: [AppController],
   providers: [AppService],
 })
